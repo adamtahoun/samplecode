@@ -1,0 +1,15 @@
+version: '2'
+services:
+  network_mode: host
+  app:
+    image: test
+    ports:
+    - "9090:9090"
+    depends_on:
+    - mypostgres
+  mypostgres:
+    image: postgres
+    environment:
+     - POSTGRES_PASSWORD=password
+     - POSTGRES_USER=postgres
+     - POSTGRES_DB=demo
